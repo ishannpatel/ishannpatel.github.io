@@ -651,6 +651,35 @@
       transform: none;
     }
 
+
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 100px;
+      padding: 0.3rem 0.4rem;
+      cursor: pointer;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      color: var(--muted);
+      transition: all 0.2s;
+      font-family: "DM Sans", sans-serif;
+    }
+    .lang-btn.active {
+      background: var(--green-accent);
+      color: var(--green-dark);
+    }
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
@@ -669,14 +698,18 @@
 <nav>
   <div class="nav-logo">IP</div>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#home" data-en="Home" data-da="Hjem">Home</a></li>
+    <li><a href="#about" data-en="About" data-da="Om mig">About</a></li>
+    <li><a href="#skills" data-en="Skills" data-da="Kompetencer">Skills</a></li>
+    <li><a href="#experience" data-en="Experience" data-da="Erfaring">Experience</a></li>
+    <li><a href="#education" data-en="Education" data-da="Uddannelse">Education</a></li>
+    <li><a href="#certifications" data-en="Certifications" data-da="Certifikater">Certifications</a></li>
+    <li><a href="#contact" data-en="Contact" data-da="Kontakt">Contact</a></li>
   </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    <button class="lang-btn" id="btn-da" onclick="setLang('da')">🇩🇰 DA</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -687,18 +720,18 @@
   <div class="hero-content">
 
     <h1 class="hero-name">Ishann<br><span>Patel</span></h1>
-    <p class="hero-title">Advanced Business Analyst · AI Generalist · Driving Digital Transformation & AI-Powered Solutions</p>
-    <div class="hero-location">📍 Copenhagen Metropolitan Area, Denmark</div>
+    <p class="hero-title" data-en="Advanced Business Analyst · AI Generalist · Driving Digital Transformation &amp; AI-Powered Solutions" data-da="Senior Forretningsanalytiker · AI Generalist · Driver Digital Transformation &amp; AI-løsninger">Advanced Business Analyst · AI Generalist · Driving Digital Transformation & AI-Powered Solutions</p>
+    <div class="hero-location" data-en="📍 Copenhagen Metropolitan Area, Denmark" data-da="📍 Storkøbenhavn, Danmark">📍 Copenhagen Metropolitan Area, Denmark</div>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Get In Touch</a>
-      <a href="#experience" class="btn-outline">View Experience</a>
+      <a href="#contact" class="btn-primary" data-en="Get In Touch" data-da="Kontakt mig">Get In Touch</a>
+      <a href="#experience" class="btn-outline" data-en="View Experience" data-da="Se erfaring">View Experience</a>
     </div>
   </div>
 
   <div class="hero-stats">
     <div class="stat-card">
       <span class="stat-num">5+</span>
-      <p class="stat-label">Years Experience</p>
+      <p class="stat-label" data-en="Years Experience" data-da="Års erfaring">Years Experience</p>
     </div>
     <div class="stat-card">
       <span class="stat-num">AI</span>
@@ -706,15 +739,15 @@
     </div>
     <div class="stat-card">
       <span class="stat-num">BA</span>
-      <p class="stat-label">Advanced Analyst</p>
+      <p class="stat-label" data-en="Advanced Analyst" data-da="Senior analytiker">Advanced Analyst</p>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-label">01. About Me</div>
-  <h2 class="section-title">Who I Am</h2>
+  <div class="section-label" data-en="01. About Me" data-da="01. Om mig">01. About Me</div>
+  <h2 class="section-title" data-en="Who I Am" data-da="Hvem er jeg">Who I Am</h2>
   <div class="section-divider"></div>
   <div class="about-grid animate">
     <div class="about-text">
@@ -726,33 +759,33 @@
     <div class="about-details">
       <div class="detail-item">
         <div class="detail-icon">🎯</div>
-        <div class="detail-label">Current Role</div>
+        <div class="detail-label" data-en="Current Role" data-da="Nuværende stilling">Current Role</div>
         <div class="detail-value">Operation Associate at Brdr. A&O Johansen A/S</div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">📍</div>
-        <div class="detail-label">Location</div>
+        <div class="detail-label" data-en="Location" data-da="Placering">Location</div>
         <div class="detail-value">Copenhagen, Denmark</div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">🎓</div>
-        <div class="detail-label">Education</div>
+        <div class="detail-label" data-en="Education" data-da="Uddannelse">Education</div>
         <div class="detail-value">M.Sc Computer Networking, University of Bedfordshire</div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">🌐</div>
-        <div class="detail-label">Languages</div>
-        <div class="detail-value">English, Hindi, Gujarati</div>
+        <div class="detail-label" data-en="Languages" data-da="Sprog">Languages</div>
+        <div class="detail-value">English, Hindi, Gujarati, Danish</div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">🤖</div>
-        <div class="detail-label">Passion</div>
+        <div class="detail-label" data-en="Passion" data-da="Passion">Passion</div>
         <div class="detail-value">AI Adoption & Digital Transformation</div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">🚀</div>
-        <div class="detail-label">Open To</div>
-        <div class="detail-value">Product Owner Roles</div>
+        <div class="detail-label" data-en="Open To" data-da="Åben for">Open To</div>
+        <div class="detail-value">Growth-Oriented Opportunities</div>
       </div>
     </div>
   </div>
@@ -760,8 +793,8 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label">02. Skills & Expertise</div>
-  <h2 class="section-title">What I Bring</h2>
+  <div class="section-label" data-en="02. Skills &amp; Expertise" data-da="02. Kompetencer &amp; Ekspertise">02. Skills & Expertise</div>
+  <h2 class="section-title" data-en="What I Bring" data-da="Hvad jeg tilbyder">What I Bring</h2>
   <div class="section-divider"></div>
   <div class="skills-grid animate">
     <div class="skill-card">
@@ -840,18 +873,18 @@
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-label">03. Experience</div>
-  <h2 class="section-title">Career Journey</h2>
+  <div class="section-label" data-en="03. Experience" data-da="03. Erfaring">03. Experience</div>
+  <h2 class="section-title" data-en="Career Journey" data-da="Karriereforløb">Career Journey</h2>
   <div class="section-divider"></div>
   <div class="timeline">
 
     <div class="timeline-item animate">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        <div class="timeline-role">Operation Associate</div>
-        <div class="timeline-date">Sep 2021 – Present</div>
+        <div class="timeline-role" data-en="Operation Associate" data-da="Driftsmedarbejder">Operation Associate</div>
+        <div class="timeline-date" data-en="Sep 2021 – Present" data-da="Sep 2021 – Nu">Sep 2021 – Present</div>
       </div>
-      <div class="timeline-company">Brdr. A&O Johansen A/S · Full-time · Denmark</div>
+      <div class="timeline-company" data-en="Brdr. A&O Johansen A/S · Full-time · Denmark" data-da="Brdr. A&O Johansen A/S · Fuldtid · Danmark">Brdr. A&O Johansen A/S · Full-time · Denmark</div>
       <ul class="timeline-desc">
         <li>Ensured workplace safety compliance and implemented smart inventory management systems, integrating AI-driven forecasting to improve accuracy and reduce stockouts.</li>
         <li>Streamlined transportation workflows by applying predictive analytics and AI-powered route optimization, minimizing material damage and enhancing supply chain efficiency.</li>
@@ -863,10 +896,10 @@
     <div class="timeline-item animate">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        <div class="timeline-role">Product Owner</div>
-        <div class="timeline-date">Sep 2020 – Aug 2021</div>
+        <div class="timeline-role" data-en="Product Owner" data-da="Produktejer">Product Owner</div>
+        <div class="timeline-date" data-en="Sep 2020 – Aug 2021" data-da="Sep 2020 – Aug 2021">Sep 2020 – Aug 2021</div>
       </div>
-      <div class="timeline-company">Vyanjan Pvt Ltd. · Freelance · India (Remote)</div>
+      <div class="timeline-company" data-en="Vyanjan Pvt Ltd. · Freelance · India (Remote)" data-da="Vyanjan Pvt Ltd. · Freelance · Indien (Fjernarbejde)">Vyanjan Pvt Ltd. · Freelance · India (Remote)</div>
       <ul class="timeline-desc">
         <li>Defined product vision and roadmap, ensuring alignment with business goals and customer needs.</li>
         <li>Prioritized and managed backlog, delivering high-value features and enhancing customer experience.</li>
@@ -877,10 +910,10 @@
     <div class="timeline-item animate">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        <div class="timeline-role">IT Consultant</div>
-        <div class="timeline-date">Feb 2015 – Aug 2020</div>
+        <div class="timeline-role" data-en="IT Consultant" data-da="IT-konsulent">IT Consultant</div>
+        <div class="timeline-date" data-en="Feb 2015 – Aug 2020" data-da="Feb 2015 – Aug 2020">Feb 2015 – Aug 2020</div>
       </div>
-      <div class="timeline-company">Freelance · Copenhagen, Denmark (Remote)</div>
+      <div class="timeline-company" data-en="Freelance · Copenhagen, Denmark (Remote)" data-da="Freelance · København, Danmark (Fjernarbejde)">Freelance · Copenhagen, Denmark (Remote)</div>
       <ul class="timeline-desc">
         <li>Delivered IT solutions across multiple client projects, aligning systems with evolving business requirements.</li>
         <li>Advised clients on digital transformation and cloud adoption, improving efficiency and scalability.</li>
@@ -891,10 +924,10 @@
     <div class="timeline-item animate">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        <div class="timeline-role">IT Engineer – Business & Solution Analysis</div>
-        <div class="timeline-date">Jan 2014 – Dec 2014</div>
+        <div class="timeline-role" data-en="IT Engineer – Business & Solution Analysis" data-da="IT-ingeniør – Forretnings- & løsningsanalyse">IT Engineer – Business & Solution Analysis</div>
+        <div class="timeline-date" data-en="Jan 2014 – Dec 2014" data-da="Jan 2014 – Dec 2014">Jan 2014 – Dec 2014</div>
       </div>
-      <div class="timeline-company">Thaker Engineering Co. Pvt. Ltd. · Vadodara, India</div>
+      <div class="timeline-company" data-en="Thaker Engineering Co. Pvt. Ltd. · Vadodara, India" data-da="Thaker Engineering Co. Pvt. Ltd. · Vadodara, Indien">Thaker Engineering Co. Pvt. Ltd. · Vadodara, India</div>
       <ul class="timeline-desc">
         <li>Led stakeholder engagement and backlog refinement for complex IT solutions.</li>
         <li>Acted as liaison between business users and development teams to ensure product success.</li>
@@ -904,10 +937,10 @@
     <div class="timeline-item animate">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        <div class="timeline-role">Manager</div>
-        <div class="timeline-date">Jun 2013 – Dec 2013</div>
+        <div class="timeline-role" data-en="Manager" data-da="Leder">Manager</div>
+        <div class="timeline-date" data-en="Jun 2013 – Dec 2013" data-da="Jun 2013 – Dec 2013">Jun 2013 – Dec 2013</div>
       </div>
-      <div class="timeline-company">Subway UK & Ireland · Part-time · London, UK</div>
+      <div class="timeline-company" data-en="Subway UK & Ireland · Part-time · London, UK" data-da="Subway UK & Irland · Deltid · London, UK">Subway UK & Ireland · Part-time · London, UK</div>
       <ul class="timeline-desc">
         <li>Team Leadership, Sales & Revenue Generation, Operations Management, Quality Assurance, Training and Development.</li>
       </ul>
@@ -918,8 +951,8 @@
 
 <!-- EDUCATION -->
 <section id="education">
-  <div class="section-label">04. Education</div>
-  <h2 class="section-title">Academic Background</h2>
+  <div class="section-label" data-en="04. Education" data-da="04. Uddannelse">04. Education</div>
+  <h2 class="section-title" data-en="Academic Background" data-da="Akademisk baggrund">Academic Background</h2>
   <div class="section-divider"></div>
   <div class="edu-grid animate">
     <div class="edu-card">
@@ -941,8 +974,8 @@
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
-  <div class="section-label">05. Certifications</div>
-  <h2 class="section-title">Credentials</h2>
+  <div class="section-label" data-en="05. Certifications" data-da="05. Certifikater">05. Certifications</div>
+  <h2 class="section-title" data-en="Credentials" data-da="Kvalifikationer">Credentials</h2>
   <div class="section-divider"></div>
   <div class="cert-grid animate">
     <div class="cert-card">
@@ -985,8 +1018,8 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">06. Get In Touch</div>
-  <h2 class="section-title">Let's Connect</h2>
+  <div class="section-label" data-en="06. Get In Touch" data-da="06. Kontakt">06. Get In Touch</div>
+  <h2 class="section-title" data-en="Let's Connect" data-da="Lad os forbindes">Let's Connect</h2>
   <div class="section-divider"></div>
   <div class="contact-grid animate">
     <div class="contact-text">
@@ -997,7 +1030,7 @@
       <a href="javascript:void(0)" onclick="window.location='mai'+'lto:'+'ishannvision'+'@'+'gmail.com';" class="contact-link">
         <div class="contact-link-icon">&#128231;</div>
         <div class="contact-link-text">
-          <span>Email</span>
+          <span data-en="Email" data-da="E-mail">Email</span>
           <p id="emailDisplay"></p>
         </div>
       </a>
@@ -1005,21 +1038,21 @@
       <a href="tel:+4591622044" class="contact-link">
         <div class="contact-link-icon">📞</div>
         <div class="contact-link-text">
-          <span>Phone</span>
+          <span data-en="Phone" data-da="Telefon">Phone</span>
           <p>+45 91622044</p>
         </div>
       </a>
       <a href="https://www.linkedin.com/in/theishannpatel/" target="_blank" class="contact-link">
         <div class="contact-link-icon">💼</div>
         <div class="contact-link-text">
-          <span>LinkedIn</span>
+          <span data-en="LinkedIn" data-da="LinkedIn">LinkedIn</span>
           <p>linkedin.com/in/theishannpatel</p>
         </div>
       </a>
       <a href="#home" class="contact-link">
         <div class="contact-link-icon">📍</div>
         <div class="contact-link-text">
-          <span>Location</span>
+          <span data-en="Location" data-da="Placering">Location</span>
           <p>Copenhagen Metropolitan Area, Denmark</p>
         </div>
       </a>
@@ -1032,19 +1065,166 @@
   Designed & Built with ❤️ by <strong>Ishann Patel</strong> &nbsp;·&nbsp; © 2026. All rights reserved.
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll animation
-  const animateEls = document.querySelectorAll('.animate');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  animateEls.forEach(el => observer.observe(el));
 
-  // Active nav link highlight
-  const sections = document.querySelectorAll('section[id]');
-  const 
+<script>
+  // ── TRANSLATIONS ─────────────────────────────────────────────
+  const t = {
+    en: {
+      aboutP: [
+        'Business and technology professional with 5+ years of experience bridging business needs and technical implementation across software, AI-enabled solutions, and operational environments.',
+        'Experienced in translating complex business requirements into scalable digital solutions through stakeholder collaboration, data analysis, and user-centred development.',
+        'Strong background working across cross-functional teams to define requirements, user stories, and acceptance criteria while supporting implementation and continuous improvement using data insights.',
+        'Passionate about enabling AI adoption that creates measurable business value, improves processes, and enhances customer experience.'
+      ],
+      contactP: [
+        "I'm always open to discussing new opportunities, Business Analysis challenges, AI-powered solutions, or how we can collaborate on your next project.",
+        "Whether you're looking for a Product Owner, Business Analyst, or someone to help bridge business and technology — let's talk!"
+      ],
+      footer: 'Designed &amp; Built with ❤️ by <strong>Ishann Patel</strong> &nbsp;·&nbsp; © 2026. All rights reserved.',
+      experience: [
+        [
+          'Ensured workplace safety compliance and implemented smart inventory management systems, integrating AI-driven forecasting to improve accuracy and reduce stockouts.',
+          'Streamlined transportation workflows by applying predictive analytics and AI-powered route optimization, minimizing material damage and enhancing supply chain efficiency.',
+          'Collaborated with cross-functional teams using AI-enabled project management tools to improve communication and ensure on-time delivery.',
+          'Leveraged data-driven insights and automation to support decision-making and drive continuous operational excellence.'
+        ],
+        [
+          'Defined product vision and roadmap, ensuring alignment with business goals and customer needs.',
+          'Prioritized and managed backlog, delivering high-value features and enhancing customer experience.',
+          'Collaborated with stakeholders and development teams to ensure successful product releases.'
+        ],
+        [
+          'Delivered IT solutions across multiple client projects, aligning systems with evolving business requirements.',
+          'Advised clients on digital transformation and cloud adoption, improving efficiency and scalability.',
+          'Provided training on agile practices and IT infrastructure, enhancing workforce productivity.'
+        ],
+        [
+          'Led stakeholder engagement and backlog refinement for complex IT solutions.',
+          'Acted as liaison between business users and development teams to ensure product success.'
+        ],
+        [
+          'Team Leadership, Sales & Revenue Generation, Operations Management, Quality Assurance, Training and Development.'
+        ]
+      ]
+    },
+    da: {
+      aboutP: [
+        'Forretnings- og teknologiprofessionel med 5+ års erfaring med at bygge bro mellem forretningsmæssige behov og teknisk implementering inden for software, AI-løsninger og operationelle miljøer.',
+        'Erfaren i at omsætte komplekse forretningskrav til skalerbare digitale løsninger via interessentsamarbejde, dataanalyse og brugercentreret udvikling.',
+        'Stærk baggrund i tværfaglige teams til at definere krav, brugerhistorier og acceptkriterier, mens implementering og løbende forbedring understøttes med dataindsigt.',
+        'Passioneret for at muliggøre AI-adoption, der skaber målbar forretningsværdi, forbedrer processer og styrker kundeoplevelsen.'
+      ],
+      contactP: [
+        'Jeg er altid åben for at diskutere nye muligheder, forretningsanalyse-udfordringer, AI-løsninger eller hvordan vi kan samarbejde om dit næste projekt.',
+        'Uanset om du leder efter en Product Owner, Business Analyst eller en person, der kan bygge bro mellem forretning og teknologi — lad os tale!'
+      ],
+      footer: 'Designet &amp; Bygget med ❤️ af <strong>Ishann Patel</strong> &nbsp;·&nbsp; © 2026. Alle rettigheder forbeholdes.',
+      experience: [
+        [
+          'Sikrede overholdelse af arbejdsmiljøregler og implementerede smarte lagerstyringssystemer med AI-drevet prognosticering for at forbedre nøjagtighed og reducere lagermangel.',
+          'Strømlinede transportarbejdsgange ved hjælp af prædiktiv analyse og AI-drevet ruteoptimering, hvilket minimerede materialeskader og forbedrede forsyningskædens effektivitet.',
+          'Samarbejdede med tværfaglige teams ved hjælp af AI-aktiverede projektledelsesværktøjer for at forbedre kommunikation og sikre rettidig levering.',
+          'Udnyttede datadrevne indsigter og automatisering til at understøtte beslutningstagning og drive kontinuerlig operationel excellence.'
+        ],
+        [
+          'Definerede produktvision og -plan og sikrede overensstemmelse med forretningsmål og kundebehov.',
+          'Prioriterede og administrerede backlog, leverede højtværdifunktioner og forbedrede kundeoplevelsen.',
+          'Samarbejdede med interessenter og udviklingsteams for at sikre vellykkede produktlanceringer.'
+        ],
+        [
+          'Leverede IT-løsninger på tværs af flere kundeprojekter og tilpassede systemer til skiftende forretningskrav.',
+          'Rådgav kunder om digital transformation og cloud-adoption, forbedrede effektivitet og skalerbarhed.',
+          'Leverede undervisning i agile metoder og IT-infrastruktur og øgede arbejdsstyrkens produktivitet.'
+        ],
+        [
+          'Ledte interessentengagement og backlog-refinement til komplekse IT-løsninger.',
+          'Fungerede som bindeled mellem forretningsbrugere og udviklingsteams for at sikre produktsucces.'
+        ],
+        [
+          'Teamledelse, salg og omsætningsgenerering, driftsstyring, kvalitetssikring, uddannelse og udvikling.'
+        ]
+      ]
+    }
+  };
+
+  function setLang(lang) {
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-da').classList.toggle('active', lang === 'da');
+
+    // Translate data-en/da elements
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val) el.textContent = val;
+    });
+
+    // About paragraphs
+    var aboutPs = document.querySelectorAll('.about-text p');
+    t[lang].aboutP.forEach(function(text, i) {
+      if (aboutPs[i]) aboutPs[i].textContent = text;
+    });
+
+    // Experience bullet points
+    var expSections = document.querySelectorAll('.timeline-desc');
+    t[lang].experience.forEach(function(bullets, si) {
+      if (!expSections[si]) return;
+      var lis = expSections[si].querySelectorAll('li');
+      bullets.forEach(function(text, li) {
+        if (lis[li]) lis[li].textContent = text;
+      });
+    });
+
+    // Contact paragraphs
+    var contactPs = document.querySelectorAll('.contact-text p');
+    t[lang].contactP.forEach(function(text, i) {
+      if (contactPs[i]) contactPs[i].textContent = text;
+    });
+
+    // Footer
+    document.querySelector('footer').innerHTML = t[lang].footer;
+
+    // Re-render email
+    var emailEl = document.getElementById('emailDisplay');
+    if (emailEl) emailEl.textContent = 'ishannvision' + '@' + 'gmail.com';
+
+    try { localStorage.setItem('preferredLang', lang); } catch(e) {}
+  }
+
+    // ── SCROLL ANIMATION ─────────────────────────────────────────
+  var animateEls = document.querySelectorAll('.animate');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() { entry.target.classList.add('visible'); }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    animateEls.forEach(function(el) { observer.observe(el); });
+  }
+
+  // ── ACTIVE NAV HIGHLIGHT ──────────────────────────────────────
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var current = '';
+    sections.forEach(function(s) {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(function(a) {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--green-accent)' : '';
+    });
+  });
+
+  // ── LOAD SAVED LANGUAGE ───────────────────────────────────────
+  try {
+    var saved = localStorage.getItem('preferredLang');
+    if (saved === 'da') setLang('da');
+  } catch(e) {}
+
+  // Set email on load
+  var emailEl = document.getElementById('emailDisplay');
+  if (emailEl) emailEl.textContent = 'ishannvision' + '@' + 'gmail.com';
+</script>
+</body>
+</html>
