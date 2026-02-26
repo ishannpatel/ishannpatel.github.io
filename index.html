@@ -681,14 +681,124 @@
       color: var(--green-dark);
     }
     /* RESPONSIVE */
+    /* ── HAMBURGER MENU ─────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--green-accent);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── TABLET (max 900px) ─────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
+      nav {
+        padding: 1rem 1.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        background: rgba(10,46,26,0.98);
+        border-top: 1px solid rgba(34,197,94,0.15);
+        padding: 1rem 0;
+        order: 3;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      .hamburger { display: flex; }
+      .lang-toggle { order: 2; }
+
       section { padding: 4rem 1.5rem; }
-      #home { padding: 6rem 1.5rem 3rem; flex-direction: column; }
-      .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; margin-top: 2rem; justify-content: center; }
+      #home { padding: 7rem 1.5rem 3rem; flex-direction: column; }
+      .hero-stats {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        justify-content: center;
+      }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .about-details { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── MOBILE (max 600px) ─────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .nav-logo { font-size: 1.2rem; }
+
+      section { padding: 3rem 1.2rem; }
+      #home { padding: 6rem 1.2rem 2.5rem; }
+
+      .hero-name { font-size: 3rem; }
+      .hero-title { font-size: 0.95rem; }
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-outline { text-align: center; padding: 0.9rem 1.5rem; }
+
+      .hero-stats {
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+      }
+      .stat-card { min-width: 90px; padding: 1rem; }
+      .stat-num { font-size: 1.5rem; }
+
+      .section-title { font-size: 1.8rem; }
+
+      .about-details { grid-template-columns: 1fr; }
+      .detail-item { padding: 1rem; }
+
+      .timeline::before { left: 0; }
+      .timeline-item { padding-left: 2rem; }
+      .timeline-header { flex-direction: column; gap: 0.5rem; }
+      .timeline-role { font-size: 1rem; }
+      .timeline-date { font-size: 0.72rem; align-self: flex-start; }
+
+      .skill-card { padding: 1.2rem; }
+      .skill-tags { gap: 0.4rem; }
+
+      .edu-card { padding: 1.3rem; }
+      .cert-card { padding: 1rem; }
+
+      .contact-link { padding: 1rem; }
+      .contact-link-icon { width: 36px; height: 36px; font-size: 1rem; }
+
+      .lang-toggle { padding: 0.25rem 0.3rem; }
+      .lang-btn { font-size: 0.7rem; padding: 0.2rem 0.5rem; }
+
+      footer { font-size: 0.75rem; padding: 1.5rem 1rem; }
+    }
+
+    /* ── SMALL MOBILE (max 380px) ───────────── */
+    @media (max-width: 380px) {
+      .hero-name { font-size: 2.5rem; }
+      .stat-card { min-width: 80px; padding: 0.8rem; }
+      .stat-num { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -697,7 +807,10 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">IP</div>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#home" data-en="Home" data-da="Hjem">Home</a></li>
     <li><a href="#about" data-en="About" data-da="Om mig">About</a></li>
     <li><a href="#skills" data-en="Skills" data-da="Kompetencer">Skills</a></li>
@@ -1146,6 +1259,21 @@
       ]
     }
   };
+
+  function toggleMenu() {
+    var nav = document.getElementById('navLinks');
+    var btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  // Close menu when a nav link is clicked
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
 
   function setLang(lang) {
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
