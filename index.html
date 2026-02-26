@@ -635,13 +635,13 @@
 
     /* ANIMATIONS */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 1; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     .animate {
-      opacity: 0;
-      transform: translateY(24px);
+      opacity: 1;
+      /* transform: translateY(24px); */
       transition: all 0.7s ease;
     }
 
@@ -993,11 +993,11 @@
       <p style="margin-top:1rem;">Whether you're looking for a Product Owner, Business Analyst, or someone to help bridge business and technology — let's talk!</p>
     </div>
     <div class="contact-links">
-      <a href="mailto:ishannvision@gmail.com" class="contact-link">
+      <a href="/cdn-cgi/l/email-protection#5d342e353c33332b342e3432331d3a303c3431733e3230" class="contact-link">
         <div class="contact-link-icon">📧</div>
         <div class="contact-link-text">
           <span>Email</span>
-          <p>ishannvision@gmail.com</p>
+          <p><span class="__cf_email__" data-cfemail="553c263d343b3b233c263c3a3b153238343c397b363a38">[email&#160;protected]</span></p>
         </div>
       </a>
       <a href="tel:+4591622044" class="contact-link">
@@ -1030,7 +1030,7 @@
   Designed & Built with ❤️ by <strong>Ishann Patel</strong> &nbsp;·&nbsp; © 2026. All rights reserved.
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll animation
   const animateEls = document.querySelectorAll('.animate');
   const observer = new IntersectionObserver((entries) => {
@@ -1045,10 +1045,4 @@
 
   // Active nav link highlight
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
-    });
-    navLinks.f
+  const
